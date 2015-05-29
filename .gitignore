@@ -1,0 +1,4 @@
+.idea
+_vendor
+node_modules
+*.log
