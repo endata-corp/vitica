@@ -21,10 +21,10 @@ func (c *Context) SayHello(rw web.ResponseWriter, req *web.Request) {
 }
 
 func StartWebServer() {
-	router := web.New(Context{}). // Create your router
-					Middleware(LoggerMiddleware).         // Use some included middleware
-					Middleware(web.ShowErrorsMiddleware). // ...
-					Middleware((*Context).SetHelloCount). // Your own middleware!
-					Get("/", (*Context).SayHello)         // Add a route
-	http.ListenAndServe("0.0.0.0:8001", router) // Start the server!
+	router := web.New(Context{})                // Create your router
+	router.Middleware(LoggerMiddleware)         // Use some included middleware
+	router.Middleware(web.ShowErrorsMiddleware) // ...
+	router.Middleware((*Context).SetHelloCount) // Your own middleware!
+	router.Get("/", (*Context).SayHello)        // Add a route
+	http.ListenAndServe("0.0.0.0:8000", router) // Start the server!
 }
