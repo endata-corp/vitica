@@ -1,0 +1,10 @@
+{
+  "db": {
+    "hostname": "localhost",
+    "port": 3306,
+    "database": "vitica",
+    "user": "root",
+    "password": "password",
+    "options": "charset=utf8\u0026parseTime=True\u0026loc=Local"
+  }
+}

@@ -1,7 +1,8 @@
 package main
-import "oppsio"
+
+import "vitica"
 
 func main() {
-	oppsio.DB()
-	oppsio.StartWebServer()
+	vitica.DB()
+	vitica.StartWebServer()
 }

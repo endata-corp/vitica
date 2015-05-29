@@ -1,0 +1,6 @@
+gom 'github.com/chakrit/go-bunyan'
+gom 'github.com/jrallison/go-workers'
+gom 'github.com/gocraft/web'
+gom 'github.com/jinzhu/gorm'
+gom 'github.com/go-sql-driver/mysql', :tag => 'v1.2'
+gom 'github.com/robfig/cron', :tag => 'v1'

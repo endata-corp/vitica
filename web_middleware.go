@@ -1,8 +1,8 @@
 package vitica
 
 import (
-	"oppsio/_vendor/src/github.com/gocraft/web"
 	"time"
+	"vitica/_vendor/src/github.com/gocraft/web"
 )
 
 func LoggerMiddleware(rw web.ResponseWriter, req *web.Request, next web.NextMiddlewareFunc) {
