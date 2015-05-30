@@ -9,11 +9,16 @@ import (
 func (c *WebContext) GetProduct(rw web.ResponseWriter, req *web.Request) {
 	product := Product{}
 	product.Code = "The product code"
-	render.New().HTML(rw, http.StatusOK, "example", struct {
-		Message string
-	}{
-		"This is my message here!",
+	r := render.New(render.Options{Layout: "home"})
+	r.HTML(rw, http.StatusOK, "sample/example", map[string]string{
+		"Message": "json",
 	})
+
+	//	r.HTML(rw, http.StatusOK, "sample/example", struct {
+	//		Message string
+	//	}{
+	//		"This is my message here!",
+	//	})
 
 	//	orgId := req.PathParams["org_id"]
 	//	org := Organization{}
