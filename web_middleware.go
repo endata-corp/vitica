@@ -7,9 +7,7 @@ import (
 
 func LoggerMiddleware(rw web.ResponseWriter, req *web.Request, next web.NextMiddlewareFunc) {
 	startTime := time.Now()
-
 	next(rw, req)
-
 	duration := time.Since(startTime).Nanoseconds()
 	var durationUnits string
 	switch {
@@ -22,6 +20,14 @@ func LoggerMiddleware(rw web.ResponseWriter, req *web.Request, next web.NextMidd
 	default:
 		durationUnits = "ns"
 	}
-
 	Info("[%d %s] %d '%s'\n", duration, durationUnits, rw.StatusCode(), req.URL.Path)
+}
+
+func (c *WebContext) MyMiddleWare(
+	rw web.ResponseWriter,
+	req *web.Request,
+	next web.NextMiddlewareFunc) {
+
+	//c.HelloCount = 3
+	next(rw, req)
 }

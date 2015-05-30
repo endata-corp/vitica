@@ -1,6 +1,0 @@
-gom 'github.com/chakrit/go-bunyan', :commit => '5a9b5e7b1765a2d8c872c8faa32f0a812337a61e'
-gom 'github.com/jrallison/go-workers', :commit => 'a5368356aa61a226ca34f130ea9c312eda3d8d25'
-gom 'github.com/gocraft/web', :commit => '934a096ff6918ed5d4667075794a8d18a88c1576'
-gom 'github.com/jinzhu/gorm', :commit => 'b96ca76e5924c4f83d9bac72415dfe754e2812bd'
-gom 'github.com/go-sql-driver/mysql', :commit => 'a732e14c62dde3285440047bba97581bc472ae18'
-gom 'github.com/robfig/cron', :commit => 'b024fc5ea0e34bc3f83d9941c8d60b0622bfaca4'

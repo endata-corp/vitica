@@ -11,6 +11,28 @@ type BaseModel struct {
 	DeletedAt *time.Time
 }
 
+type Garment struct {
+	BaseModel
+	Name        string
+	Description string
+	Brand       string
+	Material    string
+	StyleId     string
+}
+
+type GarmentColor struct {
+	BaseModel
+	Name string
+	Hex  string
+}
+
+type GarmentSize struct {
+	BaseModel
+	Code        string
+	Name        string
+	Description string
+}
+
 type Product struct {
 	BaseModel
 	Code         string
