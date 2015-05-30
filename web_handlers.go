@@ -7,6 +7,7 @@ import (
 )
 
 func (c *WebContext) GetProduct(rw web.ResponseWriter, req *web.Request) {
+
 	product := Product{}
 	product.Code = "The product code"
 	r := render.New(render.Options{Layout: "home"})
