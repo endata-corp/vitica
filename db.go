@@ -38,7 +38,7 @@ func dbConnect() *gorm.DB {
 func dbSync() error {
 	dbHandle = dbHandle.AutoMigrate(
 		&Product{},
-		&Design{},
+		&Garment{},
 	)
 	if dbHandle.Error != nil {
 		return dbHandle.Error
