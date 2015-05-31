@@ -28,9 +28,9 @@ type Product struct {
 	Name               string
 	Description        string `sql:"size:5000"`
 	DesignId           string
-	GarmentIdM         string
+	GarmentIdM         uint
 	GarmentM           Garment
-	GarmentIdW         string
+	GarmentIdW         uint
 	GarmentW           Garment
 	GarmentColor       string
 	GarmentHex         string
@@ -48,5 +48,18 @@ type Product struct {
 	ImageDesignUrl     string
 	IsActive           bool `sql:"DEFAULT:1"`
 	IsApproved         bool `sql:"DEFAULT:0"`
+	BaseModelTimestamps
+}
+
+type ProductTag struct {
+	BaseModelKey
+	ProductId uint
+	TagId     uint
+	BaseModelTimestamps
+}
+
+type Tag struct {
+	BaseModelKey
+	Name string
 	BaseModelTimestamps
 }
