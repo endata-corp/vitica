@@ -1,10 +1,20 @@
 package vitica
 
 import (
+	"fmt"
 	"net/http"
 	"vitica/_vendor/src/github.com/gocraft/web"
 	"vitica/_vendor/src/github.com/unrolled/render"
 )
+
+func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
+	rw.WriteHeader(http.StatusNotFound)
+	fmt.Fprintf(rw, "My Not Found")
+}
+
+func (c *WebContext) GetHome(rw web.ResponseWriter, req *web.Request) {
+	fmt.Fprint(rw, "home")
+}
 
 func (c *WebContext) GetProduct(rw web.ResponseWriter, req *web.Request) {
 
