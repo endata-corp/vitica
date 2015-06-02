@@ -1,7 +1,7 @@
 package vitica
 
 import (
-	"net/http"
+	"vitica/_vendor/src/github.com/fvbock/endless"
 	"vitica/_vendor/src/github.com/gocraft/web"
 )
 
@@ -18,7 +18,7 @@ func StartWebServer() {
 	createRoutes(router)
 	router.Middleware(web.StaticMiddleware("public",
 		web.StaticOption{Prefix: "/static"}))
-	http.ListenAndServe("0.0.0.0:8000", router) // Start the server!
+	endless.ListenAndServe("0.0.0.0:8000", router) // Start the server!
 }
 
 func createRoutes(router *web.Router) {
