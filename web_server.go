@@ -15,9 +15,10 @@ func StartWebServer() {
 	router.Middleware(web.ShowErrorsMiddleware)   // ...
 	router.Middleware((*WebContext).MyMiddleWare) // My own middleware!
 	router.NotFound((*WebContext).NotFound)
+
 	createRoutes(router)
-	router.Middleware(web.StaticMiddleware("public",
-		web.StaticOption{Prefix: "/static"}))
+	router.Middleware(web.StaticMiddleware("public", web.StaticOption{Prefix: "/assets"}))
+
 	endless.ListenAndServe("0.0.0.0:8000", router) // Start the server!
 }
 
