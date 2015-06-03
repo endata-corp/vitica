@@ -1,4 +1,5 @@
 .idea
 _vendor
+_theme
 node_modules
 *.log
