@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 	"vitica/_vendor/src/github.com/gocraft/web"
-	"vitica/_vendor/src/github.com/unrolled/render"
 )
 
 func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
@@ -13,15 +12,16 @@ func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
 }
 
 func (c *WebContext) GetHome(rw web.ResponseWriter, req *web.Request) {
-	fmt.Fprint(rw, "home")
+	Render(rw, "sample/blank", map[string]string{
+		"Title": "My Blank Page",
+	})
 }
 
 func (c *WebContext) GetProduct(rw web.ResponseWriter, req *web.Request) {
 
 	product := Product{}
 	product.Code = "The product code"
-	r := render.New(render.Options{Layout: "home"})
-	r.HTML(rw, http.StatusOK, "sample/example", map[string]string{
+	Render(rw, "sample/example", map[string]string{
 		"Message": "json",
 	})
 

@@ -1,12 +1,24 @@
 package vitica
 
 import (
+	"net/http"
+	"os"
 	"vitica/_vendor/src/github.com/fvbock/endless"
 	"vitica/_vendor/src/github.com/gocraft/web"
+	"vitica/_vendor/src/github.com/unrolled/render"
 )
 
 type WebContext struct {
 	HelloCount int
+}
+
+func Render(rw http.ResponseWriter, name string, binding interface{}) {
+	options := render.Options{
+		Layout:        "layout",
+		IsDevelopment: (os.Getenv("GO_ENV") != "PRODUCTION"),
+	}
+	r := render.New(options)
+	r.HTML(rw, http.StatusOK, name, binding)
 }
 
 func StartWebServer() {
@@ -17,9 +29,14 @@ func StartWebServer() {
 	router.NotFound((*WebContext).NotFound)
 
 	createRoutes(router)
-	router.Middleware(web.StaticMiddleware("public", web.StaticOption{Prefix: "/assets"}))
+	router.Middleware(web.StaticMiddleware("public/images", web.StaticOption{Prefix: "/images"}))
+	router.Middleware(web.StaticMiddleware("public/assets", web.StaticOption{Prefix: "/assets"}))
 
-	endless.ListenAndServe("0.0.0.0:8000", router) // Start the server!
+	if os.Getenv("GO_ENV") == "PRODUCTION" {
+		endless.ListenAndServe("0.0.0.0:8000", router)
+	} else {
+		http.ListenAndServe("0.0.0.0:8000", router)
+	}
 }
 
 func createRoutes(router *web.Router) {
