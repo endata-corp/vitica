@@ -9,6 +9,7 @@ import (
 )
 
 var DEV_MODE = (os.Getenv("GO_ENV") != "PRODUCTION")
+var APP_DIR = os.Getenv("VITICA_DIR")
 
 type WebContext struct {
 	HelloCount int
@@ -19,6 +20,7 @@ func Render(rw http.ResponseWriter, name string, binding interface{}) {
 	options := render.Options{
 		Layout:        "layout",
 		IsDevelopment: DEV_MODE,
+		Directory:     APP_DIR + "/templates",
 	}
 	r := render.New(options)
 	r.HTML(rw, http.StatusOK, name, binding)
@@ -32,8 +34,8 @@ func StartWebServer() {
 	}
 	router.Middleware((*WebContext).MyMiddleWare) // My own middleware!
 	router.NotFound((*WebContext).NotFound)
-	router.Middleware(web.StaticMiddleware("public/images", web.StaticOption{Prefix: "/images"}))
-	router.Middleware(web.StaticMiddleware("public/assets", web.StaticOption{Prefix: "/assets"}))
+	router.Middleware(web.StaticMiddleware(APP_DIR+"/public/images", web.StaticOption{Prefix: "/images"}))
+	router.Middleware(web.StaticMiddleware(APP_DIR+"/public/assets", web.StaticOption{Prefix: "/assets"}))
 
 	createRoutes(router)
 
