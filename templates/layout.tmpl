@@ -3,17 +3,14 @@
 <html lang="en">
 <head>
   {{ template "head" }}
-  <title>{{ template "title" . }}</title>
+  <title>{{ .Title }}</title>
 </head>
 <body>
 {{ template "login" }}
 {{ template "signup" }}
 {{ template "navbar" }}
 
-<div class="container main-container headerOffset">
-  {{ yield }}
-</div>
-<!-- /.main-container -->
+{{ yield }}
 
 <div class="gap"></div>
 <footer>

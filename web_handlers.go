@@ -3,7 +3,6 @@ package vitica
 import (
 	"fmt"
 	"net/http"
-	"strconv"
 	"vitica/_vendor/src/github.com/gocraft/web"
 )
 
@@ -14,13 +13,13 @@ func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
 
 func (c *WebContext) GetHome(rw web.ResponseWriter, req *web.Request) {
 	Render(rw, "sample/blank", map[string]string{
-		"Title": "My Blank Page" + strconv.FormatBool(DEV_MODE),
+		"Title": "My Home Page",
 	})
 }
 
 func (c *WebContext) GetProductDetail(rw web.ResponseWriter, req *web.Request) {
 	Render(rw, "catalog/product-detail", map[string]string{
-		"Title": "Hello",
+		"Title": "Hello Product",
 	})
 }
 
