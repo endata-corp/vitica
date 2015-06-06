@@ -13,7 +13,7 @@ func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
 
 func (c *WebContext) GetHome(rw web.ResponseWriter, req *web.Request) {
 	Render(rw, "sample/blank", map[string]string{
-		"Title": "My Home Page",
+		"Title": "My Home",
 	})
 }
 
