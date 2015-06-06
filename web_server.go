@@ -48,5 +48,6 @@ func StartWebServer() {
 
 func createRoutes(router *web.Router) {
 	router.Get("/", (*WebContext).GetHome)
-	router.Get("/product", (*WebContext).GetProduct)
+	//router.Get("/product/:id:\\d.*", (*WebContext).GetProductDetail)
+	router.Get("/product/:id", (*WebContext).GetProductDetail)
 }

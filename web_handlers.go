@@ -18,6 +18,12 @@ func (c *WebContext) GetHome(rw web.ResponseWriter, req *web.Request) {
 	})
 }
 
+func (c *WebContext) GetProductDetail(rw web.ResponseWriter, req *web.Request) {
+	Render(rw, "catalog/product-detail", map[string]string{
+		"Title": "Hello",
+	})
+}
+
 func (c *WebContext) GetProduct(rw web.ResponseWriter, req *web.Request) {
 
 	product := Product{}
