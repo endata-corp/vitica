@@ -1,0 +1,21 @@
+{{ define "navbar" }}
+<!-- Fixed navbar start -->
+<div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
+  {{ template "navbar-top" }}
+
+  <div class="container">
+    {{ template "navbar-header-mobile" }}
+    {{ template "cart-menu-mobile" }}
+
+    <div class="navbar-collapse collapse">
+      {{ template "navbar-menu" }}
+      {{ template "navbar-menu-mobile" }}
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+  <!--/.container -->
+
+  {{ template "search-full" }}
+</div>
+<!-- /.Fixed navbar  -->
+{{ end }}
