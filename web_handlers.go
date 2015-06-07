@@ -11,18 +11,6 @@ func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
 	fmt.Fprintf(rw, "My Not Found")
 }
 
-func (c *WebContext) GetHome(rw web.ResponseWriter, req *web.Request) {
-	Render(rw, "sample/blank", map[string]string{
-		"Title": "My Home",
-	})
-}
-
-func (c *WebContext) GetProductDetail(rw web.ResponseWriter, req *web.Request) {
-	Render(rw, "catalog/product-detail", map[string]string{
-		"Title": "Hello Product",
-	})
-}
-
 func (c *WebContext) GetProduct(rw web.ResponseWriter, req *web.Request) {
 
 	product := Product{}
