@@ -3,6 +3,7 @@ package vitica
 import (
 	_ "vitica/_vendor/src/github.com/go-sql-driver/mysql"
 	"vitica/_vendor/src/github.com/jinzhu/gorm"
+	"vitica/data"
 )
 
 var dbHandle *gorm.DB
@@ -37,8 +38,8 @@ func dbConnect() *gorm.DB {
 // Synchronizes the db schema if necessary
 func dbSync() error {
 	dbHandle = dbHandle.AutoMigrate(
-		&Product{},
-		&Garment{},
+		&data.Product{},
+		&data.Garment{},
 	)
 	if dbHandle.Error != nil {
 		return dbHandle.Error

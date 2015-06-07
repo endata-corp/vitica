@@ -1,6 +1,8 @@
 package main
 
-import "vitica"
+import (
+	"vitica"
+)
 
 func main() {
 	vitica.DB()

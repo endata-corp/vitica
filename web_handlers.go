@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"vitica/_vendor/src/github.com/gocraft/web"
+	"vitica/data"
 )
 
 func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
@@ -13,7 +14,7 @@ func (c *WebContext) NotFound(rw web.ResponseWriter, r *web.Request) {
 
 func (c *WebContext) GetProduct(rw web.ResponseWriter, req *web.Request) {
 
-	product := Product{}
+	product := data.Product{}
 	product.Code = "The product code"
 	Render(rw, "sample/example", map[string]string{
 		"Message": "json",

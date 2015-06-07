@@ -5,7 +5,12 @@ import (
 )
 
 func defineRoutes(router *web.Router) {
-	router.Get("/", (*WebContext).GetHome)
-	//router.Get("/product/:id:\\d.*", (*WebContext).GetProductDetail)
-	router.Get("/product/:id", (*WebContext).GetProductDetail)
+	router.Get("/", (*WebContext).HandleHome)
+
+	router.Get("/categories", (*WebContext).HandleCategories)
+	router.Get("/categories/:code", (*WebContext).HandleCategory)
+
+	// "/product/:id:\\d.*" regex for int type
+	router.Get("/products", (*WebContext).HandleCategories)
+	router.Get("/products/:code", (*WebContext).HandleProduct)
 }

@@ -1,4 +1,4 @@
-package vitica
+package data
 
 import (
 	"time"
