@@ -37,17 +37,11 @@ func StartWebServer() {
 	router.Middleware(web.StaticMiddleware(APP_DIR+"/public/images", web.StaticOption{Prefix: "/images"}))
 	router.Middleware(web.StaticMiddleware(APP_DIR+"/public/assets", web.StaticOption{Prefix: "/assets"}))
 
-	createRoutes(router)
+	defineRoutes(router)
 
 	if DEV_MODE {
 		http.ListenAndServe("0.0.0.0:8000", router)
 	} else {
 		endless.ListenAndServe("0.0.0.0:8000", router)
 	}
-}
-
-func createRoutes(router *web.Router) {
-	router.Get("/", (*WebContext).GetHome)
-	//router.Get("/product/:id:\\d.*", (*WebContext).GetProductDetail)
-	router.Get("/product/:id", (*WebContext).GetProductDetail)
 }
