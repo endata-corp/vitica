@@ -1,0 +1,45 @@
+/** THEME OVERRIDES **/
+
+.promotion {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  width: auto;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+
+.promotion-sale {
+  background: #5588e8;
+  color: #fff;
+  display: inline-block;
+  float: left;
+  font-family: Oswald, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  padding: 6px;
+}
+
+.promotion-new {
+  background: #2ECC71;
+  color: #fff;
+  display: inline-block;
+  float: left;
+  font-family: Oswald, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  padding: 6px;
+}
+
+.box-description H4 {
+  margin-top: 4px;
+  font-size: 16px;
+  min-height: 20px;
+}
+
+.product-price {
+  margin-bottom: 4px;
+}
