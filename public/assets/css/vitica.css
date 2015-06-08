@@ -1,5 +1,9 @@
 /** THEME OVERRIDES **/
 
+.nav-stacked > li {
+  border-bottom: solid 0 #eee;
+}
+
 .promotion {
   position: absolute;
   z-index: 10;
@@ -42,4 +46,8 @@
 
 .product-price {
   margin-bottom: 4px;
+}
+
+.sidebar-group {
+  padding-left: 10px;
 }
