@@ -40,6 +40,10 @@ func dbSync() error {
 	dbHandle = dbHandle.AutoMigrate(
 		&data.Product{},
 		&data.Garment{},
+		&data.Category{},
+		&data.ProductCategory{},
+		&data.Tag{},
+		&data.ProductTag{},
 	)
 	if dbHandle.Error != nil {
 		return dbHandle.Error
