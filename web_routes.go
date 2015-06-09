@@ -5,8 +5,8 @@ import (
 )
 
 func defineRoutes(router *web.Router) {
-	router.Get("/", (*WebContext).HandleHome)
 
+	router.Get("/", (*WebContext).HandleCategories)
 	router.Get("/categories", (*WebContext).HandleCategories)
 	router.Get("/categories/:code", (*WebContext).HandleCategory)
 
