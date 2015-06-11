@@ -25,6 +25,7 @@ type Garment struct {
 type Product struct {
 	BaseModelKey
 	Code               string
+	Slug               string
 	Name               string
 	Description        string `sql:"size:5000"`
 	DesignId           string
