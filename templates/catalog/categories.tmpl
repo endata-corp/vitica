@@ -67,17 +67,17 @@
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                  <a href="/products/123">
+                  <a href="/products/{{ .Code }}">
                     <img src="/images/285×285.png" alt="img" class="img-responsive ">
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/products/123">
+                  <a href="/products/{{ .Code }}">
                     <img src="/images/285×285.png" alt="img" class="img-responsive ">
                   </a>
                 </div>
                 <div class="item">
-                  <a href="/products/123">
+                  <a href="/products/{{ .Code }}">
                     <img src="/images/285×285.png" alt="img" class="img-responsive ">
                   </a>
                 </div>
@@ -97,7 +97,7 @@
 
           <div class="box-description">
             <h4>
-              <a href="/products/123"> {{.Name}} </a>
+              <a href="/products/{{ .Code }}"> {{.Name}} </a>
             </h4>
 
             <div class="product-price">

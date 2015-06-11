@@ -21,9 +21,9 @@
   <!-- right column -->
   <div class="col-lg-6 col-md-6 col-sm-5">
 
-    <h1 class="product-title"> Lorem ipsum dolor sit amet</h1>
+    <h1 class="product-title"> {{ .Product.Name }} </h1>
 
-    <h3 class="product-code">Product Code : DEN1098</h3>
+    <h3 class="product-code">Product Code : {{ .Product.Code }}</h3>
 
     <div class="rating">
       <p><span><i class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span> <span><i
@@ -32,8 +32,8 @@
         data-toggle="modal" data-target="#modal-review"> Write a review</a> </span></p>
     </div>
     <div class="product-price">
-      <span class="price-sales"> $70</span>
-      <span class="price-standard">$95</span>
+      <span class="price-sales"> ${{ .Product.Price }}</span>
+      <span class="price-standard">${{ .Product.PriceSuggested }}</span>
     </div>
 
     <div class="details-description">
