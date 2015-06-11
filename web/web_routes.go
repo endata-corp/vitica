@@ -1,4 +1,4 @@
-package vitica
+package web
 
 import (
 	"vitica/_vendor/src/github.com/gocraft/web"

@@ -1,19 +1,19 @@
-package vitica
+package web
 
 import (
 	"vitica/_vendor/src/github.com/gocraft/web"
+	"vitica/data"
 )
 
 func (c *WebContext) HandleCategories(rw web.ResponseWriter, req *web.Request) {
-	s := []string{"1", "2", "3", "4", "5", "6", "7"}
-	data := struct {
+	_, products := data.GetAllProducts()
+	Render(rw, "catalog/categories", struct {
 		Title    string
-		Products []string
+		Products []data.Product
 	}{
-		"MY Categories",
-		s,
-	}
-	Render(rw, "catalog/categories", data)
+		"All Categories",
+		products,
+	})
 }
 
 func (c *WebContext) HandleCategory(rw web.ResponseWriter, req *web.Request) {

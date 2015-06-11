@@ -1,10 +1,11 @@
-package vitica
+package config
 
 import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"vitica/log"
 )
 
 var configFilePath = os.Getenv("VITICA_DIR") + "/config/dev.json"
@@ -38,7 +39,7 @@ func GetDBConfig() string {
 func ReadConfig() error {
 	jsonConfig, err := ioutil.ReadFile(configFilePath)
 	if err != nil {
-		Error("Error reading config file: %v", configFilePath)
+		log.Error("Error reading config file: %v", configFilePath)
 		return err
 	}
 	json.Unmarshal(jsonConfig, &config)
@@ -48,12 +49,12 @@ func ReadConfig() error {
 func SaveConfig() error {
 	jsonConfig, err := json.MarshalIndent(&config, "", "  ")
 	if err != nil {
-		Error("Couldn't marshalled config: %v", err.Error())
+		log.Error("Couldn't marshalled config: %v", err.Error())
 		return err
 	}
 	err = ioutil.WriteFile(configFilePath, jsonConfig, 0644)
 	if err != nil {
-		Error("Error writing config file: %v", err.Error())
+		log.Error("Error writing config file: %v", err.Error())
 		return err
 	}
 	return nil

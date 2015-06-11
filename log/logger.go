@@ -1,4 +1,4 @@
-package vitica
+package log
 
 import (
 	"vitica/_vendor/src/github.com/chakrit/go-bunyan"

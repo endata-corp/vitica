@@ -1,8 +1,9 @@
-package vitica
+package web
 
 import (
 	"time"
 	"vitica/_vendor/src/github.com/gocraft/web"
+	"vitica/log"
 )
 
 func LoggerMiddleware(rw web.ResponseWriter, req *web.Request, next web.NextMiddlewareFunc) {
@@ -20,7 +21,7 @@ func LoggerMiddleware(rw web.ResponseWriter, req *web.Request, next web.NextMidd
 	default:
 		durationUnits = "ns"
 	}
-	Info("[%d %s] %d '%s'\n", duration, durationUnits, rw.StatusCode(), req.URL.Path)
+	log.Info("[%d %s] %d '%s'\n", duration, durationUnits, rw.StatusCode(), req.URL.Path)
 }
 
 func (c *WebContext) MyMiddleWare(

@@ -1,9 +1,10 @@
-package vitica
+package data
 
 import (
 	_ "vitica/_vendor/src/github.com/go-sql-driver/mysql"
 	"vitica/_vendor/src/github.com/jinzhu/gorm"
-	"vitica/data"
+	"vitica/config"
+	"vitica/log"
 )
 
 var dbHandle *gorm.DB
@@ -18,19 +19,19 @@ func DB() *gorm.DB {
 
 // Connect to the db
 func dbConnect() *gorm.DB {
-	err := ReadConfig()
+	err := config.ReadConfig()
 	if err != nil {
 		panic(err.Error())
 	}
-	handle, err := gorm.Open("mysql", GetDBConfig())
+	handle, err := gorm.Open("mysql", config.GetDBConfig())
 	if err != nil {
-		Error("Unable to connect to DB %s", err.Error())
+		log.Error("Unable to connect to DB %s", err.Error())
 	}
 	dbHandle = &handle
 
 	err = dbSync()
 	if err != nil {
-		Error("Error synching db: ", err.Error())
+		log.Error("Error synching db: ", err.Error())
 	}
 	return dbHandle
 }
@@ -38,12 +39,12 @@ func dbConnect() *gorm.DB {
 // Synchronizes the db schema if necessary
 func dbSync() error {
 	dbHandle = dbHandle.AutoMigrate(
-		&data.Product{},
-		&data.Garment{},
-		&data.Category{},
-		&data.ProductCategory{},
-		&data.Tag{},
-		&data.ProductTag{},
+		&Product{},
+		&Garment{},
+		&Category{},
+		&ProductCategory{},
+		&Tag{},
+		&ProductTag{},
 	)
 	if dbHandle.Error != nil {
 		return dbHandle.Error

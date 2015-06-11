@@ -1,4 +1,4 @@
-package vitica
+package web
 
 import (
 	"net/http"
