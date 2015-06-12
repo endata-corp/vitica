@@ -51,3 +51,9 @@
 .sidebar-group {
   padding-left: 10px;
 }
+
+.btn-sizes {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #E2E2E2 !important;
+}
