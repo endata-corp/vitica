@@ -38,9 +38,13 @@ type Product struct {
 	GarmentDescription string `sql:"size:5000"`
 	AvailableSizesM    string
 	AvailableSizesW    string
-	PriceSuggested     float32
-	PriceCost          float32
-	Price              float32
+	PriceSuggested     float64
+	PriceCost          float64
+	Price              float64
+	IsNewRelease       bool `sql:"DEFAULT:0"`
+	IsOnSale           bool `sql:"DEFAULT:0"`
+	IsTopSeller        bool `sql:"DEFAULT:0"`
+	IsDesignerPick     bool `sql:"DEFAULT:0"`
 	ImageUrl           string
 	ImageUrlM          string
 	ImageUrlW          string
