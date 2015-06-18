@@ -4,7 +4,7 @@
 
   <!--left column-->
   <div class="col-lg-3 col-md-3 col-sm-12 hidden-sm hidden-xs">
-    {{ template "sidebar" }}
+    {{ template "sidebar" . }}
   </div>
 
   <!--right column-->
@@ -16,7 +16,7 @@
 
     <div class="w100 clearfix">
       <p class="pull-left">
-        Showing designs in <strong>all categories</strong>
+        <strong>{{ .Name | upper }}</strong>
         <!--&nbsp;<span class="pull-right clearFilter label-warning"> clear </span>-->
       </p>
 

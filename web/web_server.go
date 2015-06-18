@@ -17,10 +17,12 @@ type WebContext struct {
 
 // Setup rendering options
 func Render(rw http.ResponseWriter, name string, binding interface{}) {
+
 	options := render.Options{
 		Layout:        "layout",
 		IsDevelopment: DEV_MODE,
 		Directory:     APP_DIR + "/templates",
+		Funcs:         GetTemplateHelpers(),
 	}
 	r := render.New(options)
 	r.HTML(rw, http.StatusOK, name, binding)

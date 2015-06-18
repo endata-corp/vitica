@@ -14,7 +14,7 @@ func (c *WebContext) HandleCategories(rw web.ResponseWriter, req *web.Request) {
 		Low:    req.FormValue("low"),
 		High:   req.FormValue("high"),
 	})
-	RenderCategories(rw, products, getTitleFromPath(path))
+	RenderCategories(rw, products, getTitleFromPath(path), path)
 }
 
 func getTitleFromPath(path string) string {
@@ -34,12 +34,16 @@ func getTitleFromPath(path string) string {
 	}
 }
 
-func RenderCategories(rw web.ResponseWriter, products []data.Product, title string) {
+func RenderCategories(rw web.ResponseWriter, products []data.Product, title string, path string) {
 	Render(rw, "catalog/categories", struct {
 		Title    string
+		Name     string
+		Path     string
 		Products []data.Product
 	}{
 		"VITICA | " + title,
+		title,
+		path,
 		products,
 	})
 }
