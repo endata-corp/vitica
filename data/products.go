@@ -7,7 +7,7 @@ func GetAllProducts() (err error, products []Product) {
 	return
 }
 
-func GetProductById(code string) (err error, product Product) {
+func GetProductByCode(code string) (err error, product Product) {
 	product = Product{}
 	db := DB()
 	err = db.Where("code = '" + code + "'").Find(&product).Error

@@ -7,7 +7,7 @@ import (
 
 func (c *WebContext) HandleProduct(rw web.ResponseWriter, req *web.Request) {
 	code := req.PathParams["code"]
-	_, product := data.GetProductById(code)
+	_, product := data.GetProductByCode(code)
 	Render(rw, "catalog/product-detail", struct {
 		Title   string
 		Product data.Product
