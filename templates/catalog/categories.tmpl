@@ -58,6 +58,12 @@
               {{ if .IsOnSale }}
               <span class="promotion-sale"> ON SALE </span>
               {{ end }}
+              {{ if .IsTopSeller }}
+              <span class="promotion-sale"> TOP SELLER </span>
+              {{ end }}
+              {{ if .IsDesignerPick }}
+              <span class="promotion-sale"> DESIGNER PICK </span>
+              {{ end }}
 
             </div>
 
