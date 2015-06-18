@@ -107,7 +107,9 @@
 
             <div class="product-price">
               <span class="price-sales"> ${{ .Price }}</span>
+              {{ if .IsOnSale }}
               <span class="price-standard"> ${{ .PriceSuggested }}</span>
+              {{ end }}
             </div>
           </div>
         </div>
