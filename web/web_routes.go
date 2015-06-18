@@ -7,11 +7,11 @@ import (
 func defineRoutes(router *web.Router) {
 
 	// Category routes
-	router.Get("/", (*WebContext).HandleAllCategories)
-	router.Get("/popular", (*WebContext).HandlePopularCategory)
-	router.Get("/new", (*WebContext).HandleNewCategory)
-	router.Get("/picks", (*WebContext).HandleDesignerPicksCategory)
-	router.Get("/sale", (*WebContext).HandleOnSaleCategory)
+	router.Get("/", (*WebContext).HandleCategories)
+	router.Get("/popular", (*WebContext).HandleCategories)
+	router.Get("/new", (*WebContext).HandleCategories)
+	router.Get("/picks", (*WebContext).HandleCategories)
+	router.Get("/sale", (*WebContext).HandleCategories)
 
 	// "/product/:id:\\d.*" regex for int type
 	router.Get("/products/:code", (*WebContext).HandleProduct)

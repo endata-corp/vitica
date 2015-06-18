@@ -5,29 +5,33 @@ import (
 	"vitica/data"
 )
 
-func (c *WebContext) HandleAllCategories(rw web.ResponseWriter, req *web.Request) {
-	_, products := data.GetAllProducts()
-	RenderCategories(rw, products, "All Products")
+func (c *WebContext) HandleCategories(rw web.ResponseWriter, req *web.Request) {
+	req.ParseForm()
+	path := req.RoutePath()
+	_, products := data.GetProducts(data.CategoryOptions{
+		Path:   path,
+		Themes: req.Form["theme"],
+		Low:    req.FormValue("low"),
+		High:   req.FormValue("high"),
+	})
+	RenderCategories(rw, products, getTitleFromPath(path))
 }
 
-func (c *WebContext) HandlePopularCategory(rw web.ResponseWriter, req *web.Request) {
-	_, products := data.GetPopularProducts()
-	RenderCategories(rw, products, "Popular")
-}
-
-func (c *WebContext) HandleNewCategory(rw web.ResponseWriter, req *web.Request) {
-	_, products := data.GetNewProducts()
-	RenderCategories(rw, products, "New Releases")
-}
-
-func (c *WebContext) HandleDesignerPicksCategory(rw web.ResponseWriter, req *web.Request) {
-	_, products := data.GetDesignerPicksProducts()
-	RenderCategories(rw, products, "Designer Picks")
-}
-
-func (c *WebContext) HandleOnSaleCategory(rw web.ResponseWriter, req *web.Request) {
-	_, products := data.GetOnSaleProducts()
-	RenderCategories(rw, products, "On Sale")
+func getTitleFromPath(path string) string {
+	switch path {
+	default:
+		return ""
+	case "/":
+		return "All Products"
+	case "/popular":
+		return "Popular"
+	case "/new":
+		return "New Releases"
+	case "/picks":
+		return "Designer Picks"
+	case "/sale":
+		return "On Sale"
+	}
 }
 
 func RenderCategories(rw web.ResponseWriter, products []data.Product, title string) {
