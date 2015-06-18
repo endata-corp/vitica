@@ -52,8 +52,13 @@
 
           <div class="imageHover">
             <div class="promotion">
+              {{ if .IsNewRelease }}
               <span class="promotion-new"> NEW RELEASE </span>
-              <!--<span class="promotion-sale"> ON SALE </span>-->
+              {{ end }}
+              {{ if .IsOnSale }}
+              <span class="promotion-sale"> ON SALE </span>
+              {{ end }}
+
             </div>
 
             <div id="carousel-id-{{ .ID }}" class="carousel slide" data-ride="carousel" data-interval="0">
