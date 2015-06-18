@@ -41,8 +41,6 @@ func dbSync() error {
 	dbHandle = dbHandle.AutoMigrate(
 		&Product{},
 		&Garment{},
-		&Category{},
-		&ProductCategory{},
 		&Tag{},
 		&ProductTag{},
 	)

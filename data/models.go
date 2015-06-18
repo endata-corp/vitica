@@ -68,18 +68,3 @@ type Tag struct {
 	Name string
 	BaseModelTimestamps
 }
-
-type Category struct {
-	BaseModelKey
-	ParentId uint
-	Code     string
-	Name     string
-	BaseModelTimestamps
-}
-
-type ProductCategory struct {
-	BaseModelKey
-	ProductId  uint
-	CategoryId uint
-	BaseModelTimestamps
-}
