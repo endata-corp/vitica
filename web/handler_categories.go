@@ -8,13 +8,13 @@ import (
 func (c *WebContext) HandleCategories(rw web.ResponseWriter, req *web.Request) {
 	req.ParseForm()
 	path := req.RoutePath()
-	_, products := data.GetProducts(data.CategoryOptions{
+	options := data.CategoryOptions{
 		Path:   path,
 		Themes: req.Form["theme"],
-		Low:    req.FormValue("low"),
-		High:   req.FormValue("high"),
-	})
-	RenderCategories(rw, products, getTitleFromPath(path), path)
+		Price:  req.FormValue("price"),
+	}
+	_, products := data.GetProducts(options)
+	RenderCategories(rw, products, getTitleFromPath(path), options)
 }
 
 func getTitleFromPath(path string) string {
@@ -34,16 +34,18 @@ func getTitleFromPath(path string) string {
 	}
 }
 
-func RenderCategories(rw web.ResponseWriter, products []data.Product, title string, path string) {
+func RenderCategories(rw web.ResponseWriter, products []data.Product, title string, options data.CategoryOptions) {
 	Render(rw, "catalog/categories", struct {
 		Title    string
 		Name     string
 		Path     string
+		Price    string
 		Products []data.Product
 	}{
 		"VITICA | " + title,
 		title,
-		path,
+		options.Path,
+		options.Price,
 		products,
 	})
 }

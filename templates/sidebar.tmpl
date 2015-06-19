@@ -33,15 +33,36 @@
       <h4>PRICE</h4>
 
       <div class="sidebar-group category-level-2 dropdown-menu-tree">
-        <label><input type="radio" name="price" value="0"/>Any</label>
-        <br/>
-        <label><input type="radio" name="price" value="10"/>$0 - $10</label>
-        <br/>
-        <label><input type="radio" name="price" value="20"/>$10 - $20</label>
-        <br/>
-        <label><input type="radio" name="price" value="30"/>$20 - $30</label>
-        <br/>
-        <label><input type="radio" name="price" value="-1"/>On Sale</label>
+        <form id="sidebarForm">
+          <div class="radio">
+            <label>
+              <input type="radio" name="price" value="any"
+                {{ if .Price | eq "any" }} checked {{ end }}
+                {{ if .Price | eq "" }} checked {{ end }} />Any
+            </label>
+            <br/>
+            <label>
+              <input type="radio" name="price" value="0-10"
+                {{ if .Price | eq "0-10" }} checked {{ end }} />$0 - $10
+            </label>
+            <br/>
+            <label>
+              <input type="radio" name="price" value="10-20"
+                {{ if .Price | eq "10-20" }} checked {{ end }} />$10 - $20
+            </label>
+            <br/>
+            <label>
+              <input type="radio" name="price" value="20-30"
+                {{ if .Price | eq "20-30" }} checked {{ end }} />$20 - $30
+            </label>
+            <br/>
+            <label>
+              <input type="radio" name="price" value="sale"
+                {{ if .Price | eq "sale" }} checked {{ end }} />On Sale
+            </label>
+          </div>
+        </form>
+
       </div>
 
     </li>

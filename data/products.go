@@ -5,8 +5,7 @@ import "vitica/log"
 type CategoryOptions struct {
 	Path   string
 	Themes []string
-	Low    string
-	High   string
+	Price  string
 }
 
 func GetProducts(options CategoryOptions) (err error, products []Product) {
