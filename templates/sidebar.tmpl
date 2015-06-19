@@ -1,39 +1,48 @@
 {{ define "sidebar" }}
+<form id="sidebarForm">
+  <div class="panel-body">
+    <ul class="nav nav-pills nav-stacked tree">
+      <li class="dropdown-tree open-tree">
+        <h4>CATEGORIES</h4>
+        <ul class="category-level-2 dropdown-menu-tree">
+          <li><a {{ if .Path | eq "/" }} class="active" {{ end }} href="/"> All</a></li>
+          <li><a {{ if .Path | eq "/popular" }} class="active" {{ end }} href="/popular"> Popular</a></li>
+          <li><a {{ if .Path | eq "/new" }} class="active" {{ end }} href="/new"> New Releases</a></li>
+          <li><a {{ if .Path | eq "/picks" }} class="active" {{ end }} href="/picks"> Designer Picks</a></li>
+          <li><a {{ if .Path | eq "/sale" }} class="active" {{ end }} href="/sale"> On Sale</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav nav-pills nav-stacked tree">
+      <li class="dropdown-tree open-tree">
+        <h4>THEMES</h4>
 
-<div class="panel-body">
-  <ul class="nav nav-pills nav-stacked tree">
-    <li class="dropdown-tree open-tree">
-      <h4>CATEGORIES</h4>
-      <ul class="category-level-2 dropdown-menu-tree">
-        <li><a {{ if .Path | eq "/" }} class="active" {{ end }} href="/"> All</a></li>
-        <li><a {{ if .Path | eq "/popular" }} class="active" {{ end }} href="/popular"> Popular</a></li>
-        <li><a {{ if .Path | eq "/new" }} class="active" {{ end }} href="/new"> New Releases</a></li>
-        <li><a {{ if .Path | eq "/picks" }} class="active" {{ end }} href="/picks"> Designer Picks</a></li>
-        <li><a {{ if .Path | eq "/sale" }} class="active" {{ end }} href="/sale"> On Sale</a></li>
-      </ul>
-    </li>
-  </ul>
-  <ul class="nav nav-pills nav-stacked tree">
-    <li class="dropdown-tree open-tree">
-      <h4>THEMES</h4>
+        <div class="sidebar-group category-level-2 dropdown-menu-tree">
+          <div class="radio">
+            <label>
+              <input type="checkbox" name="theme" value="all"/>All
+            </label>
+            <br/>
+            <label>
+              <input type="checkbox" name="theme" value="technology"/>Technology
+            </label>
+            <br/>
+            <label>
+              <input type="checkbox" name="theme" value="programming"/>Programming
+            </label>
+            <br/>
+            <label>
+              <input type="checkbox" name="theme" value="funny"/>Funny
+            </label>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="nav nav-pills nav-stacked tree">
+      <li class="dropdown-tree open-tree">
+        <h4>PRICE</h4>
 
-      <div class="sidebar-group category-level-2 dropdown-menu-tree">
-        <label><input type="checkbox" name="" value=""/>Technology</label>
-        <br/>
-        <label><input type="checkbox" name="" value=""/>Programming</label>
-        <br/>
-        <label><input type="checkbox" name="" value=""/>Funny</label>
-        <br/>
-        <label><input type="checkbox" name="" value=""/>Other</label>
-      </div>
-    </li>
-  </ul>
-  <ul class="nav nav-pills nav-stacked tree">
-    <li class="dropdown-tree open-tree">
-      <h4>PRICE</h4>
-
-      <div class="sidebar-group category-level-2 dropdown-menu-tree">
-        <form id="sidebarForm">
+        <div class="sidebar-group category-level-2 dropdown-menu-tree">
           <div class="radio">
             <label>
               <input type="radio" name="price" value="any"
@@ -56,124 +65,123 @@
                 {{ if .Price | eq "20-30" }} checked {{ end }} />$20 - $30
             </label>
           </div>
-        </form>
+        </div>
 
-      </div>
+      </li>
 
-    </li>
+      <!--li class="dropdown-tree open-tree">
 
-    <!--li class="dropdown-tree open-tree">
+        <br/>
+        <h4>COLOR</h4>
 
-      <br/>
-      <h4>COLOR</h4>
-
-      <div class="sidebar-group color-filter">
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="0"/>
-            <small style="background-color:#333333"></small>
-            Black <span>(123)</span> </label>
+        <div class="sidebar-group color-filter">
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="0"/>
+              <small style="background-color:#333333"></small>
+              Black <span>(123)</span> </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="1"/>
+              <small style="background-color:#1664c4"></small>
+              Blue (434) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="2"/>
+              <small style="background-color:#c00707"></small>
+              Red (338) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#6fcc14"></small>
+              Green (253) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#943f00"></small>
+              Brown (240) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#ff1cae"></small>
+              Pink (212) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#f5f5dc"></small>
+              Beige (176) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#adadad"></small>
+              Grey (154) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#5d00dc"></small>
+              Purple (132) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#f1f40e"></small>
+              Yellow (104) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#ffc600"></small>
+              Orange (77) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#9b1d00"></small>
+              Maroon (76) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#0a43a3"></small>
+              Navy Blue (68) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#ede4b2"></small>
+              Tan (67) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#ecf1ef"></small>
+              Silver (49) </label>
+          </div>
+          <div class="block-element">
+            <label>
+              <input type="checkbox" name="tour" value="3"/>
+              <small style="background-color:#f3f1e7"></small>
+              Off White (44) </label>
+          </div>
+          <div class="block-element">
+            <label> &nbsp; </label>
+          </div>
         </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="1"/>
-            <small style="background-color:#1664c4"></small>
-            Blue (434) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="2"/>
-            <small style="background-color:#c00707"></small>
-            Red (338) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#6fcc14"></small>
-            Green (253) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#943f00"></small>
-            Brown (240) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#ff1cae"></small>
-            Pink (212) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#f5f5dc"></small>
-            Beige (176) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#adadad"></small>
-            Grey (154) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#5d00dc"></small>
-            Purple (132) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#f1f40e"></small>
-            Yellow (104) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#ffc600"></small>
-            Orange (77) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#9b1d00"></small>
-            Maroon (76) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#0a43a3"></small>
-            Navy Blue (68) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#ede4b2"></small>
-            Tan (67) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#ecf1ef"></small>
-            Silver (49) </label>
-        </div>
-        <div class="block-element">
-          <label>
-            <input type="checkbox" name="tour" value="3"/>
-            <small style="background-color:#f3f1e7"></small>
-            Off White (44) </label>
-        </div>
-        <div class="block-element">
-          <label> &nbsp; </label>
-        </div>
-      </div>
 
 
-    </li-->
+      </li-->
 
 
-  </ul>
-</div>
+    </ul>
+  </div>
+</form>
 
 {{ end }}
