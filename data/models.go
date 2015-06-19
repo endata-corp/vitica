@@ -21,6 +21,7 @@ type Garment struct {
 }
 
 type Product struct {
+	BaseModelKey
 	Code               string `sql:"type:varchar(200);unique_index"`
 	Slug               string `sql:"type:varchar(200);unique_index"`
 	Name               string
@@ -48,17 +49,20 @@ type Product struct {
 	ImageSideUrl       string
 	ImageBackUrl       string
 	ImageDesignUrl     string
-	IsActive           bool `sql:"DEFAULT:1"`
-	IsApproved         bool `sql:"DEFAULT:0"`
+	IsActive           bool         `sql:"DEFAULT:1"`
+	IsApproved         bool         `sql:"DEFAULT:0"`
+	ProductTag         []ProductTag `gorm:"one2many:product_tags;"`
 	BaseModelTimestamps
 }
 
 type ProductTag struct {
-	ProductCode string `sql:"unique_index:idx_product_tag"`
-	TagCode     string `sql:"unique_index:idx_product_tag"`
+	BaseModelKey
+	ProductID int    `sql:"index"`
+	TagCode   string `sql:"unique_index:idx_product_tag"`
 }
 
 type Tag struct {
+	BaseModelKey
 	Code string `gorm:"primary_key`
 	Name string `sql:"type:varchar(200);unique_index"`
 }
