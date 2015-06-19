@@ -15,17 +15,14 @@ type BaseModelTimestamps struct {
 }
 
 type Garment struct {
-	BaseModelKey
-	Code        string
+	Code        string `sql:"type:varchar(200);unique_index"`
 	Name        string
 	Description string `sql:"size:5000"`
-	BaseModelTimestamps
 }
 
 type Product struct {
-	BaseModelKey
-	Code               string
-	Slug               string
+	Code               string `sql:"type:varchar(200);unique_index"`
+	Slug               string `sql:"type:varchar(200);unique_index"`
 	Name               string
 	Description        string `sql:"size:5000"`
 	DesignId           string
@@ -57,14 +54,11 @@ type Product struct {
 }
 
 type ProductTag struct {
-	BaseModelKey
-	ProductId uint
-	TagId     uint
-	BaseModelTimestamps
+	ProductCode string `sql:"unique_index:idx_product_tag"`
+	TagCode     string `sql:"unique_index:idx_product_tag"`
 }
 
 type Tag struct {
-	BaseModelKey
-	Name string
-	BaseModelTimestamps
+	Code string `gorm:"primary_key`
+	Name string `sql:"type:varchar(200);unique_index"`
 }
