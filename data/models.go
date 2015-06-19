@@ -57,8 +57,8 @@ type Product struct {
 
 type ProductTag struct {
 	BaseModelKey
-	ProductID int    `sql:"index"`
-	TagCode   string `sql:"unique_index:idx_product_tag"`
+	ProductID int `sql:"index"`
+	TagCode   string
 }
 
 type Tag struct {

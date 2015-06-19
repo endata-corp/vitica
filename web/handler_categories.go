@@ -41,11 +41,13 @@ func RenderCategories(rw web.ResponseWriter, products []data.Product, title stri
 		Path     string
 		Price    string
 		Products []data.Product
+		Themes   []string
 	}{
 		"VITICA | " + title,
 		title,
 		options.Path,
 		options.Price,
 		products,
+		options.Themes,
 	})
 }
