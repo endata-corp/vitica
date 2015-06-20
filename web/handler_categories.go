@@ -1,6 +1,7 @@
 package web
 
 import (
+	"strings"
 	"vitica/_vendor/src/github.com/gocraft/web"
 	"vitica/data"
 )
@@ -8,9 +9,10 @@ import (
 func (c *WebContext) HandleCategories(rw web.ResponseWriter, req *web.Request) {
 	req.ParseForm()
 	path := req.RoutePath()
+	themes := req.Form["theme"]
 	options := data.CategoryOptions{
 		Path:   path,
-		Themes: req.Form["theme"],
+		Themes: themes,
 		Price:  req.FormValue("price"),
 	}
 	_, products := data.GetProducts(options)
@@ -41,13 +43,13 @@ func RenderCategories(rw web.ResponseWriter, products []data.Product, title stri
 		Path     string
 		Price    string
 		Products []data.Product
-		Themes   []string
+		Themes   string
 	}{
 		"VITICA | " + title,
 		title,
 		options.Path,
 		options.Price,
 		products,
-		options.Themes,
+		strings.Join(options.Themes, ","),
 	})
 }

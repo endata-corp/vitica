@@ -20,19 +20,18 @@
         <div class="sidebar-group category-level-2 dropdown-menu-tree">
           <div class="radio">
             <label>
-              <input type="checkbox" name="theme" value="all"/>All
+              <input type="checkbox" name="theme" value="technology"
+                {{ if .Themes | contains "technology" }} checked {{ end }} />Technology
             </label>
             <br/>
             <label>
-              <input type="checkbox" name="theme" value="technology"/>Technology
+              <input type="checkbox" name="theme" value="programming"
+                {{ if .Themes | contains "programming" }} checked {{ end }} />Programming
             </label>
             <br/>
             <label>
-              <input type="checkbox" name="theme" value="programming"/>Programming
-            </label>
-            <br/>
-            <label>
-              <input type="checkbox" name="theme" value="funny"/>Funny
+              <input type="checkbox" name="theme" value="funny"
+                {{ if .Themes | contains "funny" }} checked {{ end }} />Funny
             </label>
           </div>
         </div>

@@ -2,7 +2,6 @@ package data
 
 import (
 	"strings"
-	"vitica/log"
 )
 
 type CategoryOptions struct {
@@ -12,7 +11,6 @@ type CategoryOptions struct {
 }
 
 func GetProducts(options CategoryOptions) (err error, products []Product) {
-	log.Info("%+v ", options)
 	products = []Product{}
 	db := DB()
 	db = db.Preload("ProductTag")
