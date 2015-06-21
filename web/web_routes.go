@@ -13,6 +13,9 @@ func defineRoutes(router *web.Router) {
 	router.Get("/picks", (*WebContext).HandleCategories)
 	router.Get("/sale", (*WebContext).HandleCategories)
 
+	//
+	router.Get("/cart", (*WebContext).HandleCart)
+
 	// "/product/:id:\\d.*" regex for int type
 	router.Get("/products/:code", (*WebContext).HandleProduct)
 }
